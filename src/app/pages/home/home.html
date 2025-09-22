@@ -1,0 +1,36 @@
+<div class="flex h-screen bg-gray-100 text-slate-800">
+  <div class="bg-blue-900 text-white w-64 space-y-6 py-7 px-2">
+    <div class="flex items-center justify-center gap-3 mb-8 border-b border-yellow-400 pb-4">
+      <a href="#" class="text-white flex items-center space-x-2 px-4">
+        <span class="text-xl font-bold tracking-wider">SGC</span>
+      </a>
+    </div>
+
+    <nav>
+      <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-yellow-400" >
+        <i class="fas fa-home mr-2"></i>
+        Dashboard
+      </a>
+      <a [routerLink]="['/lista-membros']" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-yellow-400">
+        <i class="fas fa-users mr-2"></i>
+        Membros
+      </a>
+      <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-yellow-400">
+        <i class="fas fa-money-bill-wave mr-2"></i>
+        Financeiro
+      </a>
+      <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-yellow-400">
+        <i class="fas fa-box mr-2"></i>
+        Patrimônio
+      </a>
+      <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-yellow-400">
+        <i class="fas fa-file-alt mr-2"></i>
+        Relatórios
+      </a>
+    </nav>
+  </div>
+
+  <div class="flex-1 p-10">
+        <router-outlet></router-outlet>
+  </div>
+</div>
