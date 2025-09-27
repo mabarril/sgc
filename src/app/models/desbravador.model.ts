@@ -1,3 +1,31 @@
+export interface HistoricoMatricula {
+  ano: number;
+  unidade: string;
+  classe: string;
+  cargo: string;
+}
+
+export interface Desbravador {
+  id: string;
+  dataDeAdmissao: string;
+  nomeCompleto: string;
+  dataNascimento: string;
+  rg: string;
+  cpf: string;
+  morada: string;
+  numero: string;
+  bairro: string;
+  cidade: string;
+  codigoPostal: string;
+  telefone: string;
+  email: string;
+  nomeResponsavel: string;
+  telefoneResponsavel: string;
+  historicoMatriculas: HistoricoMatricula[];
+}
+ 
+
+
 const listaDesbravadores = [
   // --- Registro 1 ---
   {

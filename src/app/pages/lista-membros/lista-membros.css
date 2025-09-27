@@ -1,2 +1,6 @@
- .mat-mdc-form-field-bottom-align {
-    background-color: red;}
+.table-container {
+  position: relative;
+  min-height: 200px;
+  max-height: 300px;
+  overflow: auto;
+}

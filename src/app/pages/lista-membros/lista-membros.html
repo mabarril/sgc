@@ -6,96 +6,40 @@
         Novo Cadastro
     </button>
 </div>
-<div class="bg-white p-6 rounded-xl shadow-md">
+<div class="bg-white p-6 rounded-xl shadow-md ">
     <h2 class="text-xl font-bold text-slate-900 mb-4">Lista de Membros</h2>
 
     <mat-form-field class="w-full font-normal text-slate-500">
         <mat-label>Filtro</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nome" #input  >
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nome" #input>
     </mat-form-field>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full mb-6">
+    <div class="h-75 overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full">
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let membro"> {{membro.id}} </td>
+            </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
+            <ng-container matColumnDef="nomeCompleto">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let membro"> {{membro.nomeCompleto}} </td>
+            </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef> Weight </th>
-            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-    </table>
+            <ng-container matColumnDef="dataNascimento">
+                <th mat-header-cell *matHeaderCellDef> Dt. Nascimento </th>
+                <td mat-cell *matCellDef="let membro"> {{membro.dataNascimento | date:'dd/MM/yyyy' }} </td>
+            </ng-container>
 
 
-    <div class="overflow-x-auto">
-        <table class="w-full text-left">
-            <thead class="border-b-2 border-slate-200">
-                <tr>
-                    <th class="p-3">Nome Completo</th>
-                    <th class="p-3">Unidade</th>
-                    <th class="p-3">Classe</th>
-                    <th class="p-3">Status Mensalidade</th>
-                    <th class="p-3">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="border-b border-slate-100 hover:bg-slate-50">
-                    <td class="p-3 font-medium">Beatriz Lima</td>
-                    <td class="p-3">Águias</td>
-                    <td class="p-3">Guia</td>
-                    <td class="p-3"><span
-                            class="bg-green-100 text-green-700 font-medium text-xs py-1 px-2 rounded-full">Em dia</span>
-                    </td>
-                    <td class="p-3 flex gap-2"><button class="p-2 text-slate-500 hover:text-blue-600"><i
-                                data-lucide="edit"></i></button><button class="p-2 text-slate-500 hover:text-red-600"><i
-                                data-lucide="trash-2"></i></button></td>
-                </tr>
-                <tr class="border-b border-slate-100 hover:bg-slate-50">
-                    <td class="p-3 font-medium">Carlos Eduardo</td>
-                    <td class="p-3">Tigres</td>
-                    <td class="p-3">Excursionista</td>
-                    <td class="p-3"><span
-                            class="bg-red-100 text-red-700 font-medium text-xs py-1 px-2 rounded-full">Atrasado</span>
-                    </td>
-                    <td class="p-3 flex gap-2"><button class="p-2 text-slate-500 hover:text-blue-600"><i
-                                data-lucide="edit"></i></button><button class="p-2 text-slate-500 hover:text-red-600"><i
-                                data-lucide="trash-2"></i></button></td>
-                </tr>
-                <tr class="border-b border-slate-100 hover:bg-slate-50">
-                    <td class="p-3 font-medium">Mariana Campos</td>
-                    <td class="p-3">Panteras</td>
-                    <td class="p-3">Guia</td>
-                    <td class="p-3"><span
-                            class="bg-green-100 text-green-700 font-medium text-xs py-1 px-2 rounded-full">Em dia</span>
-                    </td>
-                    <td class="p-3 flex gap-2"><button class="p-2 text-slate-500 hover:text-blue-600"><i
-                                data-lucide="edit"></i></button><button class="p-2 text-slate-500 hover:text-red-600"><i
-                                data-lucide="trash-2"></i></button></td>
-                </tr>
-            </tbody>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
         </table>
     </div>
 </div>
