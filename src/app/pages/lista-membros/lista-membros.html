@@ -32,6 +32,16 @@
                 <td mat-cell *matCellDef="let membro"> {{membro.dataNascimento | date:'dd/MM/yyyy' }} </td>
             </ng-container>
 
+             <ng-container matColumnDef="classeAtual">
+                <th mat-header-cell *matHeaderCellDef> Classe </th>
+                <td mat-cell *matCellDef="let membro"> {{membro.classeAtual }} </td>
+            </ng-container>
+
+             <ng-container matColumnDef="unidadeAtual">
+                <th mat-header-cell *matHeaderCellDef> Unidade </th>
+                <td mat-cell *matCellDef="let membro"> {{membro.unidadeAtual }} </td>
+            </ng-container>
+
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
