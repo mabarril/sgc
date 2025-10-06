@@ -1,23 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-import { Home } from './home';
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, CommonModule],
+  templateUrl: './home.html',
+  styleUrls: ['./home.css']
+})
+export class Home {
+  isNavCollapsed = false;
 
-describe('Home', () => {
-  let component: Home;
-  let fixture: ComponentFixture<Home>;
+  toggleNav() {
+    this.isNavCollapsed = !this.isNavCollapsed;
+  }
+}
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Home]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(Home);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});

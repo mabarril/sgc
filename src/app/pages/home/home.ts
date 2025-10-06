@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +8,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './home.css'
 })
 export class Home {
+
+   isNavCollapsed = false;
+
+  toggleNav() {
+    this.isNavCollapsed = !this.isNavCollapsed;
+  }
 
 }
